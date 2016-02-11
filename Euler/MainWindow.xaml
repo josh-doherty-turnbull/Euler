@@ -32,6 +32,8 @@
                     </Hyperlink>
                 </TextBlock>
                 <DockPanel DockPanel.Dock="Bottom">
+                    <TextBlock Text="{Binding RunTimeText}" Style="{StaticResource Emphasis}" DockPanel.Dock="Bottom"
+                               HorizontalAlignment="Right" Margin="0,0,10,0"/>
                     <mui:ModernButton Content="Calculate result" Margin="10"
                                       EllipseDiameter="50" EllipseStrokeThickness="2"
                                       FontSize="16"

@@ -12,6 +12,21 @@
     <AssemblyName>Euler</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -75,6 +90,7 @@
       <SubType>Designer</SubType>
     </Page>
     <Compile Include="Helpers\FibonacciHelper.cs" />
+    <Compile Include="Helpers\NumberHelper.cs" />
     <Compile Include="Helpers\PrimeHelper.cs" />
     <Compile Include="Helpers\SieveOfEratosthenes.cs" />
     <Compile Include="MainWindow.xaml.cs">
@@ -89,12 +105,34 @@
     <Compile Include="Problems\BaseProblem.cs" />
     <Compile Include="Problems\IProblem.cs" />
     <Compile Include="Problems\Problem1.cs" />
+    <Compile Include="Problems\Problem10.cs" />
     <Compile Include="Problems\Problem2.cs" />
+    <Compile Include="Problems\Problem23.cs" />
+    <Compile Include="Problems\Problem27.cs" />
     <Compile Include="Problems\Problem3.cs" />
+    <Compile Include="Problems\Problem30.cs" />
+    <Compile Include="Problems\Problem31.cs" />
+    <Compile Include="Problems\Problem34.cs" />
+    <Compile Include="Problems\Problem35.cs" />
+    <Compile Include="Problems\Problem39.cs" />
+    <Compile Include="Problems\Problem45.cs" />
+    <Compile Include="Problems\Problem7.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

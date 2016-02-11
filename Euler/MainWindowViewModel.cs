@@ -7,6 +7,7 @@ using Euler.MVVM;
 using System.Collections.ObjectModel;
 using Euler.Problems;
 using System.Reflection;
+using System.Diagnostics;
 
 namespace Euler
 {
@@ -17,14 +18,22 @@ namespace Euler
             IEnumerable<Type> problems = Assembly.GetExecutingAssembly().GetTypes()
                                                  .Where(t => t.IsClass &&
                                                              t.Namespace == "Euler.Problems" &&
+                                                             t.IsAbstract == false &&
+                                                             t.Name.Length > 7 &&
                                                              t.Name.Substring(0, 7) == "Problem");
 
-            AvailableProblems = new ObservableCollection<IProblem>();
+
+
+            IList<IProblem> problemList = new List<IProblem>();
 
             foreach (Type type in problems)
             {
-                AvailableProblems.Add(Activator.CreateInstance(type) as IProblem);
+                problemList.Add(Activator.CreateInstance(type) as IProblem);
             }
+
+            AvailableProblems = new ObservableCollection<IProblem>
+                (problemList.OrderBy(o => o.ProblemNumber));
+            
         }
 
         private ObservableCollection<IProblem> _AvailableProblems;
@@ -49,6 +58,7 @@ namespace Euler
                 _SelectedProblem = value;
                 RaisePropertyChanged("SelectedProblem");
                 Answer = null;
+                RunTimeText = null;
             }
         }
 
@@ -64,6 +74,20 @@ namespace Euler
             }
         }
 
+        private string _RunTimeText;
+
+        public string RunTimeText
+        {
+            get { return _RunTimeText; }
+            set
+            {
+                _RunTimeText = value;
+                RaisePropertyChanged("RunTimeText");
+            }
+        }
+
+
+
         public RelayCommand CalculateCommand { get { return new RelayCommand(Calculate, CanCalculate); } }
 
         private bool CanCalculate(object obj)
@@ -75,7 +99,13 @@ namespace Euler
         {
             MarkBusy();
 
+            Stopwatch stopwatch = Stopwatch.StartNew();
+
             Answer = await SelectedProblem.SolveAsync();
+
+            stopwatch.Stop();
+
+            RunTimeText = "Answer found in " + stopwatch.ElapsedMilliseconds.ToString("#,##0") + "ms";
 
             MarkFree();
         }

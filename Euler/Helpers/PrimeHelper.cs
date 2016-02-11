@@ -24,7 +24,7 @@ namespace Euler.Helpers
 
         public static bool IsPrime(long candidate)
         {
-            if (candidate == 1) return false;
+            if (candidate <= 1) return false;
 
             for (long i = (long)Math.Sqrt(candidate); i > 1; i--)
             {
@@ -64,6 +64,15 @@ namespace Euler.Helpers
             {
                 return factors.Where(f => IsPrime(f));
             }
+            return factors;
+        }
+
+        public static IEnumerable<long> GetProperDivisors(long number)
+        {
+            IList<long> factors = Factorise(number).ToList();
+
+            factors.Remove(number);
+
             return factors;
         }
     }

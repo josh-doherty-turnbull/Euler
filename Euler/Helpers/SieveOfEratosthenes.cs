@@ -18,7 +18,7 @@ namespace Euler.Helpers
             }
 
             primeCandidates[0] = false;
-            primeCandidates[1] = true;
+            primeCandidates[1] = false;
 
             for (int i = 2; i < upperBound + 1; i++)
             {
