@@ -92,6 +92,7 @@
     </Page>
     <Compile Include="Helpers\FibonacciHelper.cs" />
     <Compile Include="Helpers\NumberHelper.cs" />
+    <Compile Include="Helpers\PermutationExtensions.cs" />
     <Compile Include="Helpers\PrimeHelper.cs" />
     <Compile Include="Helpers\SieveOfEratosthenes.cs" />
     <Compile Include="MainWindow.xaml.cs">
@@ -117,6 +118,7 @@
     <Compile Include="Problems\Problem34.cs" />
     <Compile Include="Problems\Problem35.cs" />
     <Compile Include="Problems\Problem39.cs" />
+    <Compile Include="Problems\Problem41.cs" />
     <Compile Include="Problems\Problem45.cs" />
     <Compile Include="Problems\Problem7.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
