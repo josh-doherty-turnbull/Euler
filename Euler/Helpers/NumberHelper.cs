@@ -200,5 +200,30 @@ namespace Euler.Helpers
 
             return false;
         }
+
+        /// <summary>
+        /// Evaluates whether a number is n digit pandigital for its length (containing
+        /// all digits 1 to n for a number n digits long), e.g.
+        /// 1234 is pandigital for n=4
+        /// </summary>
+        /// <param name="number">The number to check</param>
+        /// <returns>True or false whether the number is pandigital</returns>
+        public static bool IsPandigital(long number)
+        {
+            IEnumerable<int> digits = GetDigits(number);
+            int length = digits.Count();
+
+            if (digits.Count(d => d == 0) > 0) return false;
+
+            for (int i = 1; i <= length; i++)
+            {
+                if (digits.Count(d=>d == i) != 1)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
     }
 }
