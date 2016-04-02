@@ -105,6 +105,7 @@
     <Compile Include="MVVM\RelayCommand.cs" />
     <Compile Include="MVVM\ViewModelBase.cs" />
     <Compile Include="Problems\BaseProblem.cs" />
+    <Compile Include="Problems\Problem14.cs" />
     <Compile Include="Problems\Problem22.cs" />
     <Compile Include="Problems\IProblem.cs" />
     <Compile Include="Problems\Problem1.cs" />
